@@ -6,6 +6,7 @@
         <field name="model">ej.pet</field>
         <field name="arch" type="xml">
         <tree>
+            <field name="code"/>
             <field name="name" optional="show"/>
             <field name="age"/>
             <field name="color"/>
@@ -21,17 +22,24 @@
         <field name="model">ej.pet</field>
         <field name="arch" type="xml">
             <form string="Pets List">
-                <group>
+                <sheet>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="code" readonly="1"/>
+                        </h1>
+                    </div>
                     <group>
-                        <field name="name"/>
-                        <field name="age"/>
-                        <field name="is_new"/>
+                        <group>
+                            <field name="name"/>
+                            <field name="age"/>
+                            <field name="is_new"/>
+                        </group>
+                        <group>
+                            <field name="color"/>
+                            <field name="type"/>
+                        </group>
                     </group>
-                    <group>
-                        <field name="color"/>
-                        <field name="type"/>
-                    </group>
-                </group>
+                </sheet>
             </form>
         </field>
     </record>

@@ -31,6 +31,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/view.xml',
+        'data/ir_sequence.xml',
     ],
     'images': ['static/description/banner.png'],
 }
