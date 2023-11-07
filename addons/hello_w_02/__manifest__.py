@@ -30,6 +30,7 @@
     'depends': ['base', 'hello_w'],
     'data': [
         'views/view.xml',
+        "data/pet_data.xml",
     ],
     'images': ['static/description/banner.png'],
 }

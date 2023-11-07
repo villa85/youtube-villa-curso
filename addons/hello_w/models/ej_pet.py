@@ -11,4 +11,4 @@ class EjPet(models.Model):
                             ('cat', 'Cat'),
                             ('bird', 'Bird'),
                             ('fish', 'Fish'),
-                            ('other', 'Other')], string='type', default="small", required=True)
+                            ('other', 'Other')], string='type', default="dog", required=False)
