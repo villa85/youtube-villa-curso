@@ -12,6 +12,7 @@ services:
             - "8069:8069"
         volumes:
             - ./addons:/mnt/extra-addons
+            - ./addons_v16_variations:/mnt/extra-addons2
             - ./conf:/etc/odoo
         environment:
             - HOST=postgres
