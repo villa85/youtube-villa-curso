@@ -34,24 +34,22 @@ def _create(state):
 
             vals = {}
             vals['name'] = _name
-            vals['detailed_type'] = _detailed_type
             vals['list_price'] = _list_price
-            vals['active'] = True
             print(vals)
 
             # Validate the register does not exist
             _id = object_proxy.execute_kw(db, uid, password, 'product.template', 'search', [[['name', '=', _name]]])
             if _id:
-                print('= El registro ya existe =')
-            else:
-                new_product = object_proxy.execute(db, uid, password, 'product.template', 'create', vals)
-                if new_product:
-                    print("Se ha creado el registro: ")
+                _product = object_proxy.execute(db, uid, password, 'product.template' ,'write',_id , vals)
+                if _product:
+                    print("Se ha modificado el registro: ")
                 else:
-                    print("No se ha creado el registro: ")
+                    print("No se ha modificado el registro: ")
+            else:
+                print('= El registro no existe =')
 
         cont += 1
-        print("Se han creado: ", cont)
+        print("Se han modificado: ", cont)
 
 
 def main():
