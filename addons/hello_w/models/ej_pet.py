@@ -4,7 +4,7 @@ from odoo import api, fields, models
 class EjPet(models.Model):
     _name = 'ej.pet'
     name = fields.Char(string='name', required=True)
-    code = fields.Char(string='code', dafault='New', readonly=1)
+    code = fields.Char(string='code', dafault='New', readonly=True)
     age = fields.Integer(string='age')
     color = fields.Char(string='color')
     is_new = fields.Boolean(string='is_new', default=True)
