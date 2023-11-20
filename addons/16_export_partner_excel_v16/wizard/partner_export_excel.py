@@ -30,8 +30,8 @@ class PartnerExportExcel(models.TransientModel):
 
         worksheet.write(0, 0, _("Vat"), style_border_table_top)
         worksheet.write_merge(0, 0, 1, 3, _("Partner"), style_border_table_top)
-        worksheet.write(0, 4, _("Price"), style_border_table_top)
-        worksheet.write(0, 5, _("Cost"), style_border_table_top)
+        worksheet.write(0, 4, _("Phone"), style_border_table_top)
+        worksheet.write(0, 5, _("Email"), style_border_table_top)
 
         row = 1
         for partner in partners:
@@ -39,9 +39,9 @@ class PartnerExportExcel(models.TransientModel):
             if not partner.vat:
                 style = style_border_table_details_red
             worksheet.write(row, 0, partner.vat or '', style)
-            worksheet.write_merge(row, row, 1, 3, str(partner.commercial_partner_id), style)
-            worksheet.write(row, 4, product.list_price, style)
-            worksheet.write(row, 5, product.with_company(self.env.company).standard_price, style)
+            worksheet.write_merge(row, row, 1, 3, str(partner.name), style)
+            worksheet.write(row, 4, partner.phone, style)
+            worksheet.write(row, 5, partner.email, style)
             row += 1
 
         fp = BytesIO()

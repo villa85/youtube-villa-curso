@@ -8,12 +8,12 @@
                 <form>
                     <group name="main">
                         <group name="left">
-                            <field name="product_type"/>
+                            <field name="company_type"/>
                         </group>
                         </group>
                     <footer>
 
-                        <button string="Export" name="export_product_excel" type="object" class="btn-primary"/>
+                        <button string="Export" name="export_partner_excel" type="object" class="btn-primary"/>
                         <button string="Cancel" class="oe_link" special="cancel"/>
                     </footer>
                 </form>
@@ -31,7 +31,7 @@
         <menuitem id="submenu_export_partner_excel"
                 name="Export Partner Excel"
                 action="action_export_partner_excel"
-                parent="stock.menu_stock_inventory_control"
+                parent="contacts.res_partner_menu_contacts"
                 sequence="2"/>
 
         </data>
