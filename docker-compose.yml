@@ -1,15 +1,16 @@
 version: "3.6"
 services:
-    odoo16:
-        image: odoo:16.0
+    odoo:
+        image: odoo:17.0
         platform: linux/amd64
-        container_name: odoo16
+        container_name: odoo17
         depends_on:
             - postgresql
         tty: true
         stdin_open: true
         ports:
-            - "8069:8069"
+            - "9001:8069"
+            - "9002:8072"
         volumes:
             - ./addons:/mnt/extra-addons
             - ./conf:/etc/odoo
@@ -17,9 +18,11 @@ services:
             - HOST=postgres
         restart: always
     postgresql:
-        image: postgres:13.0
+        image: postgres:15.0
         container_name: postgres
         environment:
             - POSTGRES_DB=postgres
             - POSTGRES_PASSWORD=odoo
             - POSTGRES_USER=odoo
+        ports:
+            - "5501:5432"
