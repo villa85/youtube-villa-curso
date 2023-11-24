@@ -29,23 +29,23 @@ def _create(state):
         for field in archive:
             cont += 1
             _name = field['name'].strip()
-            _email = field['email'].strip()
-            _phone = field['phone'].strip()
+            _detailed_type = field['detailed_type'].strip()
+            _list_price = field['list_price'].strip()
 
             vals = {}
             vals['name'] = _name
-            vals['email'] = _email
-            vals['phone'] = _phone
+            vals['detailed_type'] = _detailed_type
+            vals['list_price'] = _list_price
             vals['active'] = True
             print(vals)
 
             # Validate the register does not exist
-            _id = object_proxy.execute_kw(db, uid, password, 'res.partner', 'search', [[['name', '=', _name]]])
+            _id = object_proxy.execute_kw(db, uid, password, 'product.template', 'search', [[['name', '=', _name]]])
             if _id:
                 print('= El registro ya existe =')
             else:
-                new_partner = object_proxy.execute(db, uid, password, 'res.partner', 'create', vals)
-                if new_partner:
+                new_product = object_proxy.execute(db, uid, password, 'product.template', 'create', vals)
+                if new_product:
                     print("Se ha creado el registro: ")
                 else:
                     print("No se ha creado el registro: ")

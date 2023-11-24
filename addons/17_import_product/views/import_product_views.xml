@@ -22,18 +22,25 @@
                 <header>
                     <button name="action_import" type="object"
                         string="Import" class="oe_highlight"
-                        attrs="{'invisible': [('imported','=',True)]}"/>
+                        readonly = "imported == True"/>
+                        <!--attrs="{'invisible': [('imported','=',True)]}"/> (version 16) -->
 
                 </header>
                 <sheet>
                     <group name="data">
                         <field name="imported" invisible="1"/>
                         <group name="left">
-                            <field name="name" attrs="{'readonly': [('imported','=',True)]}"/>
-                            <field name="type" attrs="{'readonly': [('imported','=',True)]}"/>
+                            <field name="name"
+                            readonly = "imported == True"/>
+                            <!--attrs="{'readonly': [('imported','=',True)]}"/> (version 16) -->
+                            <field name="type"
+                            readonly = "imported == True"/>
+                            <!--attrs="{'readonly': [('imported','=',True)]}"/> (version 16) -->
                         </group>
                         <group name="right">
-                            <field name="file" filename="file_name" widget="binary" class="oe_inline" attrs="{'readonly': [('imported','=',True)]}"/>
+                            <field name="file" filename="file_name" widget="binary" class="oe_inline"
+                            readonly = "imported == True"/>
+                            <!-- attrs="{'readonly': [('imported','=',True)]}"/> (version 16) -->
                             <field name="file_name" invisible="1"/>
                         </group>
                     </group>

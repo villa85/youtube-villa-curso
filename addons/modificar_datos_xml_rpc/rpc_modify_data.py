@@ -7,8 +7,8 @@ import xmlrpc.client
 import csv
 
 host = '127.0.0.1'
-port = 8069
-db = 'curso_odoo'
+port = 9003
+db = 'odoo_10'
 user = 'admin'
 password = 'admin'
 

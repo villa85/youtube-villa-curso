@@ -41,7 +41,7 @@ class ProductExportExcel(models.TransientModel):
             worksheet.write(row, 0, product.default_code or '', style)
             worksheet.write_merge(row, row, 1, 3, str(product.name), style)
             worksheet.write(row, 4, product.list_price, style)
-            worksheet.write(row, 5, product.with_company(self.env.company).standard_price, style)
+            worksheet.write(row, 5, product.standard_price, style)
             row += 1
 
         fp = BytesIO()
@@ -49,7 +49,7 @@ class ProductExportExcel(models.TransientModel):
         fp.seek(0)
         data = fp.read()
         fp.close()
-        data_b64 = base64.encodebytes(data)
+        data_b64 = base64.standard_b64encode(data)
         doc = self.env['ir.attachment'].create({
             'name': '%s.xls' % (file_name),
             'datas': data_b64,
