@@ -32,10 +32,10 @@
             <field name="inherit_id" ref="product.product_product_tree_view"/>
             <field name="arch" type="xml">
                 <field name="lst_price" position="attributes">
-                    <attribute name="groups">14_sale_advance_permissions.group_sale_advanced</attribute>
+                    <attribute name="groups">sale_advance_permissions.group_sale_advanced</attribute>
                 </field>
                 <field name="standard_price" position="attributes">
-                    <attribute name="groups">14_sale_advance_permissions.group_sale_advanced</attribute>
+                    <attribute name="groups">sale_advance_permissions.group_sale_advanced</attribute>
                 </field>
             </field>
         </record>
@@ -46,7 +46,7 @@
             <field name="inherit_id" ref="product.product_template_kanban_view"/>
             <field name="arch" type="xml">
                 <xpath expr="//div[@name='product_lst_price']" position="attributes">
-                    <attribute name="groups">14_sale_advance_permissions.group_sale_advanced</attribute>
+                    <attribute name="groups">sale_advance_permissions.group_sale_advanced</attribute>
                 </xpath>
             </field>
         </record>
@@ -56,8 +56,8 @@
             <field name="model">product.product</field>
             <field name="inherit_id" ref="product.product_kanban_view"/>
             <field name="arch" type="xml">
-                <xpath expr="//ul" position="attributes">
-                    <attribute name="groups">14_sale_advance_permissions.group_sale_advanced</attribute>
+                <xpath expr="//div[@name='product_lst_price']" position="attributes">
+                    <attribute name="groups">sale_advance_permissions.group_sale_advanced</attribute>
                 </xpath>
             </field>
         </record>
