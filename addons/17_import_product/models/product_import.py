@@ -7,7 +7,6 @@ from odoo.exceptions import UserError
 import base64
 import xlrd
 
-
 class Product(models.Model):
     _name = 'product.import'
     _description = 'Product Import'
