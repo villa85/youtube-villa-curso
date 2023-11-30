@@ -5,7 +5,7 @@ services:
         platform: linux/amd64
         container_name: odoo16
         depends_on:
-            - postgresql
+            - postgresql13
         tty: true
         stdin_open: true
         ports:
@@ -14,11 +14,11 @@ services:
             - ./addons:/mnt/extra-addons
             - ./conf:/etc/odoo
         environment:
-            - HOST=postgres
+            - HOST=postgres13
         restart: always
-    postgresql:
+    postgresql13:
         image: postgres:13.0
-        container_name: postgres
+        container_name: postgres13
         environment:
             - POSTGRES_DB=postgres
             - POSTGRES_PASSWORD=odoo
