@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busqueda Cliente</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="row justify-content-center align-items-center" style="height: 100vh;">
+            <div class="col-md-6">
+                <div class="form-inline justify-content-center">
+                    <h2>Customer Search</h2>
+                    <p>The objective is to use odoo counters and search in the customers table</p>
+                </div>
+
+                <!--</hr>-->
+
+
+                <form id="searchForm" class="form-inline justify-content-center">
+                    <input type="text" id="cedulaInput" class="form-control mb-2 mr-sm-2" placeholder="Tax identification number (Vat)"/>
+                    <button type="submit" class="btn btn-primary mb-2">Search</button>
+                </form>
+
+
+                {% if vat_id %}
+                <hr>
+                <div>
+                    <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Tags</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Vat</td>
+                            <td>{{vat_id.vat}}</td>
+                        </tr>
+                        <tr>
+                            <td>Name</td>
+                            <td>{{vat_id.name}}</td>
+                        </tr>
+                        <tr>
+                            <td>Image</td>
+                        <td>
+                                {% if vat_img %}
+                                    <img src="{{vat_img}}"
+                                        alt="Customer image" style="width: 100px; height: auto;">
+                                {% else %}
+                                    <p>Not available</p>
+                                {% endif %}
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                {% else %}
+                <div class="alert alert-danger" role="alert">
+                    No se encontró el cliente
+                </div>
+                {% endif %}
+
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function(event){
+            event.preventDefault();
+            var cedula = document.getElementById('cedulaInput').value;
+            var url = '{{web_base_url}}' + cedula;
+            window.location.href = url;
+        });
+    </script>
+
+    <!-- Bootstrap JS, Popper.js, and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.5/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
