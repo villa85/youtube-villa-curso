@@ -1,6 +1,6 @@
 {
     'name': 'Modify Product MFH',
-    'version': '16.0.1.0.0',
+    'version': '14.0',
     'author': 'Marlon Falcon Hernandez',
     'maintainer': 'Marlon Falcon Hernandez',
     'website': 'http://www.marlonfalcon.com',

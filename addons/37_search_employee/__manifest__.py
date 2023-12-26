@@ -4,7 +4,7 @@
 
 {
     'name': 'Search employee MFH',
-    'version': '16.0.1.0.0',
+    'version': '14.0',
     'author': 'Varios',
     'maintainer': 'Varios',
     'website': 'http://www.todo.com',

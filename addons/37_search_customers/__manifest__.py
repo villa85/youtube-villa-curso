@@ -4,7 +4,7 @@
 
 {
     'name': 'Search customers',
-    'version': '16.0.1.0.0',
+    'version': '14.0',
     'author': 'Varios',
     'maintainer': 'Varios',
     'license': 'AGPL-3',

@@ -1,25 +1,35 @@
-version: "3.7"
+version: '2'
 services:
-    odoo16:
-        image: odoo:16.0
-        platform: linux/amd64
-        container_name: odoo16
-        depends_on:
-            - postgresql13
-        tty: true
-        stdin_open: true
-        ports:
-            - "8069:8069"
-        volumes:
-            - ./addons:/mnt/extra-addons
-            - ./conf:/etc/odoo
+    db:
+        image: postgres:13
+        user: root
         environment:
-            - HOST=postgres13
-        restart: always
-    postgresql13:
-        image: postgres:13.0
-        container_name: postgres13
-        environment:
-            - POSTGRES_DB=postgres
             - POSTGRES_PASSWORD=odoo
             - POSTGRES_USER=odoo
+            - POSTGRES_DB=postgres
+        restart: always             # run as a service
+        volumes:
+            - ./postgresql:/var/lib/postgresql/data
+
+    odoo14:
+        image: odoo:14
+        user: root
+        depends_on:
+            - db
+        ports:
+            - "10014:8069"
+            - "20014:8072" # live chat
+        tty: true
+        command: --
+        #    command: odoo scaffold /mnt/extra-addons/custom_module
+        environment:
+            - HOST=db
+            - USER=odoo
+            - PASSWORD=odoo
+        volumes:
+            #- /etc/timezone:/etc/timezone:ro
+            #- /etc/localtime:/etc/localtime:ro
+            # - ./entrypoint.sh:/entrypoint.sh   # if you want to install additional Python packages, uncomment this line!
+            - ./addons:/mnt/extra-addons
+            - ./etc:/etc/odoo
+        restart: always             # run as a service

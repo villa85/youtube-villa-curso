@@ -1,6 +1,6 @@
 {
     'name': '17 Product Import MFH',
-    'version': '16.0.1.0.0',
+    'version': '14.0',
     'author': 'Yuniel Villalón',
     'maintainer': 'Yuniel Villalón',
     'license': 'AGPL-3',

@@ -21,7 +21,7 @@
 
 {
     'name': 'Hello W',
-    'version': '16.0.1.0.0',
+    'version': '14.0',
     'author': 'Yuniel Villalón Rosales',
     'maintainer': 'Yuniel Villalón Rosales',
     'license': 'AGPL-3',
